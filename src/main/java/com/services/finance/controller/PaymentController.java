@@ -11,28 +11,23 @@ import java.util.List;
 import java.util.UUID;
 
 @RestController
-@RequestMapping(value = "payments")
+@RequestMapping("payments")
 @AllArgsConstructor
 
 public class PaymentController {
     private final FinanceService service;
 
-    @GetMapping(value = "clients", params = "{clientId}")
+    @GetMapping(value = "clients/{clientId}")
     public ResponseEntity<List<FinancePayment>> getClientPayments(@PathVariable UUID clientId){
         return ResponseEntity.ok(service.getClientPayments(clientId));
     }
 
 
     @PostMapping
-    public ResponseEntity<FinancePayment> createPayment(@PathVariable PaymentDTO dto){
+    public ResponseEntity<FinancePayment> createPayment(@RequestBody PaymentDTO dto){
         FinancePayment payment = new FinancePayment(dto.getSenderId(),dto.getReceiverId(),
                 dto.getMoneyAmount(),dto.getDescription());
 
         return ResponseEntity.ok(service.createPayment(payment));
-    }
-
-    @PutMapping
-    public ResponseEntity<FinancePayment> savePayment(@PathVariable FinancePayment payment){
-        return ResponseEntity.ok(service.savePayment(payment));
     }
 }

@@ -14,29 +14,14 @@ import java.util.UUID;
 
 @Service
 @AllArgsConstructor
-@NoArgsConstructor
 public class FinanceService{
-    private PaymentRepository repository;
+    private final PaymentRepository repository;
 
     @Transactional
     public FinancePayment createPayment(FinancePayment payment){
         return repository.save(payment);
     }
 
-    @Transactional
-    public FinancePayment savePayment(FinancePayment payment){
-        return repository.save(payment);
-    }
-
-    @Transactional
-    public FinancePayment getById(UUID id) throws NotFoundException{
-        Optional<FinancePayment> payment = repository.findById(id);
-
-        if(payment.isPresent())
-            return payment.get();
-        else
-            throw new NotFoundException(String.format("Payment with %s id does not exits", id));
-    }
 
     @Transactional
     public List<FinancePayment> getClientPayments(UUID clientId){
