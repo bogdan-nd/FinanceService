@@ -21,6 +21,7 @@ public class FinancePayment{
     private String description;
 
     public FinancePayment(UUID senderId, UUID receiverId, int moneyAmount, String description){
+        this.id = UUID.randomUUID();
         this.senderId = senderId;
         this.receiverId = receiverId;
         this.moneyAmount = moneyAmount;

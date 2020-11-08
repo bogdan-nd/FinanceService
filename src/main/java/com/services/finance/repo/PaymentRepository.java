@@ -9,6 +9,6 @@ import java.util.List;
 import java.util.UUID;
 
 public interface PaymentRepository extends JpaRepository<FinancePayment, UUID> {
-    @Query(value = "SELECT * from Payments p where p.senderId = :clientId", nativeQuery = true)
+    @Query(value = "SELECT * from Payments p where p.sender_id = :clientId", nativeQuery = true)
     List<FinancePayment> getClientPayments(@Param("clientId") UUID id);
 }
