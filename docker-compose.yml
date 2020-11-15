@@ -1,0 +1,30 @@
+version: '3.1'
+services:
+  financeservice:
+    network_mode: bridge
+    container_name: financeservice
+    image: bogdannaida/finance-service:latest
+    build: ./
+    ports:
+      - "8085:8085"
+    environment:
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_USER=postgres
+      - POSTGRES_DB=financeservice
+      - DB_SERVER=postgresqldb-finance
+    links:
+      - postgresqldb-finance
+
+  postgresqldb-finance:
+    network_mode: bridge
+    image: postgres
+    ports:
+      - "5435:5432"
+    environment:
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_USER=postgres
+      - POSTGRES_DB=financeservice
+    volumes:
+      - postgres-data-horses:/home/bogdannaida/Projects/IntelliJ-projects/Volumes/
+volumes:
+  postgres-data-finance:
