@@ -25,6 +25,6 @@ services:
       - POSTGRES_USER=postgres
       - POSTGRES_DB=financeservice
     volumes:
-      - postgres-data-horses:/home/bogdannaida/Projects/IntelliJ-projects/Volumes/
+      - postgres-data-finance:/home/bogdannaida/Projects/IntelliJ-projects/Volumes/
 volumes:
   postgres-data-finance:
