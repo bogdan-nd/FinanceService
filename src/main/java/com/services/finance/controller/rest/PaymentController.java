@@ -1,4 +1,4 @@
-package com.services.finance.controller;
+package com.services.finance.controller.rest;
 
 import com.services.finance.dto.PaymentDTO;
 import com.services.finance.entity.FinancePayment;
