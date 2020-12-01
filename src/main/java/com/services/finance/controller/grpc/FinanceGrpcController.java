@@ -17,7 +17,7 @@ public class FinanceGrpcController extends FinanceServiceGrpc.FinanceServiceImpl
     private final FinanceService financeService;
 
     @Override
-    public void getClientPayments(IdRequest request, StreamObserver<PaymentResponse> responseObserver) {
+    public void getClientPayments(PaymentIdRequest request, StreamObserver<PaymentResponse> responseObserver) {
         UUID clientId = UUID.fromString(request.getId());
         List<FinancePayment> payments = financeService.getClientPayments(clientId);
         List<ProtoFinance> protoPayments = transformPaymentToProto(payments);

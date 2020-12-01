@@ -22,11 +22,11 @@ message PaymentResponse{
   repeated ProtoFinance payments=1;
 }
 
-message IdRequest{
+message PaymentIdRequest{
   string id=1;
 }
 
 service FinanceService{
-  rpc getClientPayments(IdRequest) returns (PaymentResponse);
+  rpc getClientPayments(PaymentIdRequest) returns (PaymentResponse);
   rpc createPayment(PaymentRequest) returns (PaymentResponse);
 }
