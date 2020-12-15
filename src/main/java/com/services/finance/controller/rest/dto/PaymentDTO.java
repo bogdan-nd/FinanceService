@@ -1,4 +1,4 @@
-package com.services.finance.dto;
+package com.services.finance.controller.rest.dto;
 
 import lombok.Data;
 

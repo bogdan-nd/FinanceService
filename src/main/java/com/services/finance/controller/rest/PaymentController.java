@@ -1,6 +1,6 @@
 package com.services.finance.controller.rest;
 
-import com.services.finance.dto.PaymentDTO;
+import com.services.finance.controller.rest.dto.PaymentDTO;
 import com.services.finance.entity.FinancePayment;
 import com.services.finance.service.FinanceService;
 import lombok.AllArgsConstructor;
